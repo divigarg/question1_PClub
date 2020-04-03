@@ -29,9 +29,7 @@ inp.close()
 out.close()
 print()
 
-with open("updatedName.csv",'r',newline='', encoding="UTF-8") as csv_file, open(fileJson,'r',newline='', encoding="UTF-8")as json_file,open("matched.csv","w",newline='',encoding="UTF-8")as new:
-    writing= csv.writer(new,quoting=csv.QUOTE_MINIMAL)
-    writing.writerow(['Name','Roll No.','Branch','Organisation','Project'])
+with open("updatedName.csv",'r',newline='', encoding="UTF-8") as csv_file, open(fileJson,'r',newline='', encoding="UTF-8")as json_file:
     csv_read= csv.reader(csv_file)
     json_read=json.load(json_file)
     for row in csv_read:
@@ -39,7 +37,7 @@ with open("updatedName.csv",'r',newline='', encoding="UTF-8") as csv_file, open(
         for item in json_read:
             if name.lower()== item["n"].lower():
                 print(name+", "+item["i"]+", "+item["d"]+", "+row[1]+", "+row[2])
-                writing.writerow([name]+[item["i"]]+[item["d"]]+[row[1]]+[row[2]])
+
 
                 
 
